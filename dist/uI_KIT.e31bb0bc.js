@@ -29566,17 +29566,118 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"index.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"Link.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Link;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Link(props) {
+  var href = props.href,
+      children = props.children;
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("a", {
+    href: href,
+    className: "ui-link"
+  }, children));
+}
+},{"react":"node_modules/react/index.js"}],"Button.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Button;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Button(props) {
+  var type = props.type,
+      disabled = props.disabled,
+      children = props.children;
+  return /*#__PURE__*/_react.default.createElement("button", {
+    type: type,
+    disabled: disabled,
+    className: "ui-button"
+  }, children);
+}
+},{"react":"node_modules/react/index.js"}],"Container.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Container;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Container(props) {
+  var children = props.children;
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "ui-container"
+  }, children));
+}
+},{"react":"node_modules/react/index.js"}],"Input.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Input;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Input(props) {
+  var _props$type = props.type,
+      type = _props$type === void 0 ? "text" : _props$type,
+      placeholder = props.placeholder,
+      name = props.name;
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("input", {
+    type: type,
+    className: "ui-textfield",
+    placeholder: placeholder,
+    name: name
+  }));
+}
+},{"react":"node_modules/react/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactDom = _interopRequireDefault(require("react-dom"));
+var _reactDom = require("react-dom");
+
+var _Link = _interopRequireDefault(require("./Link.js"));
+
+var _Button = _interopRequireDefault(require("./Button.js"));
+
+var _Container = _interopRequireDefault(require("./Container.js"));
+
+var _Input = _interopRequireDefault(require("./Input.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement("h1", null, "Hello world!"), document.getElementById("root"));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function App() {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Link.default, {
+    href: "https://amazon.ca"
+  }, "Shop Online"), /*#__PURE__*/_react.default.createElement(_Button.default, null, "Click me"), /*#__PURE__*/_react.default.createElement(_Container.default, null), /*#__PURE__*/_react.default.createElement(_Input.default, {
+    placeholder: "Full Name",
+    name: "full-name"
+  }));
+}
+
+(0, _reactDom.render)( /*#__PURE__*/_react.default.createElement(App, null), document.querySelector("#react-root"));
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./Link.js":"Link.js","./Button.js":"Button.js","./Container.js":"Container.js","./Input.js":"Input.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -29604,7 +29705,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59678" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56785" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
